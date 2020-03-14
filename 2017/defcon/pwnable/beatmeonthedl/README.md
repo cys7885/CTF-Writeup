@@ -27,7 +27,7 @@
 
 
 
-![image-20200314132432639](D:\private\blog\2017\defcon\pwnable\beatmeonthedl\img\image-20200314132432639.png)
+![image-20200314132432639](img/image-20200314132432639.png)
 
 
 
@@ -35,7 +35,7 @@
 
 
 
-![image-20200314132641840](D:\private\blog\2017\defcon\pwnable\beatmeonthedl\img\image-20200314132641840.png)
+![image-20200314132641840](img/image-20200314132641840.png)
 
 
 
@@ -45,7 +45,7 @@
 
 **[주의] 메모리 주소는 디버깅 과정에서 계속 바뀌었습니다..**
 
-![image-20200314134031819](D:\private\blog\2017\defcon\pwnable\beatmeonthedl\img\image-20200314134031819.png)
+![image-20200314134031819](img/image-20200314134031819.png)
 
 총 4번 malloc()을 호출했다.
 
@@ -53,7 +53,7 @@
 
 이제 3번째 할당한 청크에 fake chunk를 구성한다.
 
-![fakechunk](D:\private\blog\2017\defcon\pwnable\beatmeonthedl\img\fakechunk.png)
+![fakechunk](img/fakechunk.png)
 
 3번째 청크인 0x11310b0부터  FAKE CHUNK를 구성했다.
 
@@ -92,7 +92,7 @@ FAKE CHUNK의 `FD`는  `&target-0x18` = `0x609e78`으로, `BK`에는 `&target-0x
 
 `FAKE_FD` = 0x609e78
 
-![unlink](D:\private\blog\2017\defcon\pwnable\beatmeonthedl\img\unlink.png)
+![unlink](img/unlink.png)
 
 unlink 가 트리거 된 후 `FAKE_FD`가 `FAKE_BK->FD`에 들어갔다.
 
@@ -102,13 +102,13 @@ reqlist는 할당된 포인터를 가리키는 변수다. 바이너리의 `print
 
 
 
-![image-20200314142141538](D:\private\blog\2017\defcon\pwnable\beatmeonthedl\img\image-20200314142141538.png)
+![image-20200314142141538](img/image-20200314142141538.png)
 
 
 
 leak한 주소(3번째 청크에 덮어씌운 reqlist 주소)에 `update_request()`를 통해 puts@GOT를 overwrite한다.
 
-![puts](D:\private\blog\2017\defcon\pwnable\beatmeonthedl\img\puts.png)
+![puts](img/puts.png)
 
 
 
@@ -116,5 +116,5 @@ leak한 주소(3번째 청크에 덮어씌운 reqlist 주소)에 `update_request
 
 
 
-![image-20200314143141489](C:\Users\Chanyoung So\AppData\Roaming\Typora\typora-user-images\image-20200314143141489.png)
+![image-20200314143141489](img/image-20200314143141489.png)
 
